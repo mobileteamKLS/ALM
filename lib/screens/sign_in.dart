@@ -1,3 +1,4 @@
+import 'package:alm/screens/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,14 +9,14 @@ import '../utils/media_query.dart';
 import '../widgest/common_widgests.dart';
 
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isPasswordVisible = true;
@@ -47,32 +48,30 @@ class _SignInState extends State<SignIn> {
           child: Stack(
             children: [
               Positioned(
-                top: 50,
+                top: 70,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: ScreenDimension.onePercentOfScreenWidth*headingTextPadding,
+                    horizontal: ScreenDimension.onePercentOfScreenWidth*headingTextHorizontalPadding,
                   ),
                   child: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
                           text: "ALM \n",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
+                          style:TextStyle(
                               fontSize: ScreenDimension.textSize * headingText,
                               color: AppColors.white,
                               fontWeight: FontWeight.w700,
                             ),
-                          ),
+
                         ),
                         TextSpan(
                           text: "Anchorage Logistics Marketplace",
-                          style: GoogleFonts.roboto(
-                            textStyle: TextStyle(
+                          style:  TextStyle(
                               fontSize: ScreenDimension.textSize * headingText,
                               color: AppColors.white,
                               fontWeight: FontWeight.w300,
-                            ),
+
                           ),
                         ),
 
@@ -110,12 +109,12 @@ class _SignInState extends State<SignIn> {
                               children: [
                                 Text(
                                   "Sign In",
-                                  style: GoogleFonts.roboto(textStyle: TextStyle(
+                                  style:  TextStyle(
                                       color: AppColors.textColorPrimary,
                                       letterSpacing: 0.8,
                                       fontSize: ScreenDimension.textSize * 2.5,
                                       fontWeight: FontWeight.w900)),
-                                ),
+
                               ],),
                             SizedBox(
                               height: ScreenDimension.onePercentOfScreenHight*2,
@@ -172,6 +171,10 @@ class _SignInState extends State<SignIn> {
                             ),
                             RoundedGradientButton(text: "SIGN IN", press: (){
                               print("Sign In");
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (_) => const OnboardingScreen()),
+                              );
                             }),
                             SizedBox(height: ScreenDimension.onePercentOfScreenHight * 2,),
                             Row(
@@ -182,22 +185,22 @@ class _SignInState extends State<SignIn> {
                                     Icon(Icons.arrow_back_ios_rounded,color: AppColors.textColorPrimary,),
                                     Text(
                                       "Back",
-                                      style: GoogleFonts.roboto(textStyle: TextStyle(
+                                      style:  TextStyle(
                                           color: AppColors.primary,
                                           letterSpacing: 0.8,
                                           fontSize: ScreenDimension.textSize * 1.7,
                                           fontWeight: FontWeight.w700)),
-                                    ),
+
                                   ],
                                 ),
                                 Text(
                                   "Recover Forgot Password",
-                                  style: GoogleFonts.roboto(textStyle: TextStyle(
+                                  style: TextStyle(
                                       color: AppColors.primary,
                                       letterSpacing: 0.8,
                                       fontSize: ScreenDimension.textSize * 1.7,
                                       fontWeight: FontWeight.w700)),
-                                ),
+
                               ],
                             ),
                             Spacer(),
@@ -207,43 +210,39 @@ class _SignInState extends State<SignIn> {
                                 children: [
                                   TextSpan(
                                     text: "Read ",
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
+                                    style:  TextStyle(
                                         fontSize: ScreenDimension.textSize * 1.5,
                                         color: AppColors.textColorPrimary,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                    ),
+
                                   ),
                                   TextSpan(
                                     text: "Privacy Policy",
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
+                                    style: TextStyle(
                                         fontSize: ScreenDimension.textSize *1.5,
                                         color: AppColors.primary,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                    ),
+
                                   ),
                                   TextSpan(
                                     text: " and ",
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
+                                    style: TextStyle(
                                         fontSize: ScreenDimension.textSize *1.5,
                                         color: AppColors.textColorPrimary,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                    ),
+
                                   ),
                                   TextSpan(
                                     text: "Terms & Conditions",
-                                    style: GoogleFonts.roboto(
-                                      textStyle: TextStyle(
+                                    style: TextStyle(
                                         fontSize: ScreenDimension.textSize *  1.5,
                                         color: AppColors.primary,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                    ),
+
                                   ),
 
                                 ],

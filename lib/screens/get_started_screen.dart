@@ -10,7 +10,6 @@ import '../utils/media_query.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
-
   @override
   State<GetStartedScreen> createState() => _GetStartedScreenState();
 }
@@ -36,30 +35,28 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               top: 50,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: ScreenDimension.onePercentOfScreenWidth*headingTextPadding,
+                  horizontal: ScreenDimension.onePercentOfScreenWidth*headingTextHorizontalPadding,
                 ),
                 child: Text.rich(
                   TextSpan(
                     children: [
                       TextSpan(
                         text: "Let's Get Started, \n",
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
+                        style:TextStyle(
                             fontSize: ScreenDimension.textSize * headingText,
                             color: AppColors.white,
                             fontWeight: FontWeight.w300,
                           ),
-                        ),
+
                       ),
                       TextSpan(
                         text: "Choose Sign In Method",
-                        style: GoogleFonts.roboto(
-                          textStyle: TextStyle(
+                        style: TextStyle(
                             fontSize: ScreenDimension.textSize * headingText,
                             color: AppColors.white,
                             fontWeight: FontWeight.w700,
                           ),
-                        ),
+
                       ),
                     ],
                   ),
@@ -75,10 +72,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               children: [
                     Container(
                       padding: EdgeInsets.all(
-                          ScreenDimension.onePercentOfScreenHight * 3),
+                          ScreenDimension.onePercentOfScreenHight * cardPadding),
                       decoration: BoxDecoration(
                         color: AppColors.white,
-                        borderRadius:BorderRadius.circular(ScreenDimension.onePercentOfScreenWidth * 6)
+                        borderRadius:BorderRadius.circular(ScreenDimension.onePercentOfScreenWidth * cardBorderRadiusCurve)
                       ),
                       child:Column(
                     children: [
@@ -88,40 +85,41 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                        Icon(Icons.language_outlined,color: AppColors.primary,),
+                        const Icon(Icons.language_outlined,color: AppColors.primary,),
                         Text(
                           " LANG(EN)",
-                          style: GoogleFonts.roboto(textStyle: TextStyle(
+                          style: TextStyle(
                               color: AppColors.textColorPrimary,
                               letterSpacing: 0.8,
-                              fontSize: ScreenDimension.textSize * 1.7,
+                              fontSize: ScreenDimension.textSize * titleText,
                               fontWeight: FontWeight.w700)),
-                        ),
+
                       ],),
                       SizedBox(
                         height: ScreenDimension.onePercentOfScreenHight,
                       ),
                       RoundedGradientButton(text: "SIGN IN WITH USER ID", press: (){
                         print("Sign In");
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SignIn(),),(route) => false,);
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SignInScreen(),),(route) => false,);
                       }),
                       SizedBox(height: ScreenDimension.onePercentOfScreenHight * 2,),
                       Text(
                         "Don\'t have an account yet?",
-                        style: GoogleFonts.roboto(textStyle: TextStyle(
+                        style: TextStyle(
                             color: AppColors.textColorSecondary,
                             letterSpacing: 0.8,
                             fontSize: ScreenDimension.textSize * 1.5,
                             fontWeight: FontWeight.w400)),
-                      ),
+
                       SizedBox(height: ScreenDimension.onePercentOfScreenHight * 0.5,),
                       Text(
                         "Sign Up Now",
-                        style: GoogleFonts.roboto(textStyle: TextStyle(
+                        style:TextStyle(
                             color: AppColors.primary,
                             letterSpacing: 0.8,
-                            fontSize: ScreenDimension.textSize * 1.7,
-                            fontWeight: FontWeight.w700)),
+                            fontSize: ScreenDimension.textSize * titleText,
+                            fontWeight: FontWeight.w700),
+
                       ),
 
                     ],
