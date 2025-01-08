@@ -1,0 +1,1 @@
+const loginBgImage="assets/images/loginBg.webp";
