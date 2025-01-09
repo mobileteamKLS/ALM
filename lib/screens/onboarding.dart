@@ -4,9 +4,10 @@ import 'package:alm/utils/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../core/dimensions.dart';
 import '../modal/onboarding_data.dart';
 import '../widgest/common_widgests.dart';
-import 'dashboard.dart';
+import 'service_provider/service_provider_dashboard.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     // await prefs.setBool('onboardingSeen', true);
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => const DashboardScreen()),
+      MaterialPageRoute(builder: (_) => const ProviderDashboardScreen()),
     );
   }
 
@@ -100,13 +101,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                      Text(contents[i].title,
                           style: TextStyle(
-                            color: AppColors.textColorPrimary,fontSize: ScreenDimension.textSize*2.5,fontWeight: FontWeight.w600
+                            color: AppColors.textColorPrimary,fontSize: ScreenDimension.textSize*headingText,fontWeight: FontWeight.w600
                           ),
                           textAlign: TextAlign.center),
                       SizedBox(height: ScreenDimension.onePercentOfScreenHight * 2),
                       Text(  contents[i].desc,
                           style: TextStyle(
-                              color: AppColors.textColorSecondary,fontSize: ScreenDimension.textSize*1.5,fontWeight: FontWeight.w400
+                              color: AppColors.textColorSecondary,fontSize: ScreenDimension.textSize*bodyTextMedium,fontWeight: FontWeight.w400
                           ),
                           textAlign: TextAlign.center),
                     ],

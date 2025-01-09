@@ -90,12 +90,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       Container(
                         height:ScreenDimension.onePercentOfScreenHight*75,
                         padding: EdgeInsets.all(
-                            ScreenDimension.onePercentOfScreenHight * 3),
+                            ScreenDimension.onePercentOfScreenHight * cardPadding),
                         decoration: BoxDecoration(
                             color: AppColors.white,
                             borderRadius:BorderRadius.only(
-                              topRight: Radius.circular(ScreenDimension.onePercentOfScreenWidth * 6),
-                              topLeft: Radius.circular(ScreenDimension.onePercentOfScreenWidth * 6),
+                              topRight: Radius.circular(ScreenDimension.onePercentOfScreenWidth * cardBorderRadiusCurve),
+                              topLeft: Radius.circular(ScreenDimension.onePercentOfScreenWidth * cardBorderRadiusCurve),
                             )
 
                         ),
@@ -112,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   style:  TextStyle(
                                       color: AppColors.textColorPrimary,
                                       letterSpacing: 0.8,
-                                      fontSize: ScreenDimension.textSize * 2.5,
+                                      fontSize: ScreenDimension.textSize * headingText,
                                       fontWeight: FontWeight.w900)),
 
                               ],),
@@ -188,7 +188,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                       style:  TextStyle(
                                           color: AppColors.primary,
                                           letterSpacing: 0.8,
-                                          fontSize: ScreenDimension.textSize * 1.7,
+                                          fontSize: ScreenDimension.textSize * titleText,
                                           fontWeight: FontWeight.w700)),
 
                                   ],
@@ -198,7 +198,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   style: TextStyle(
                                       color: AppColors.primary,
                                       letterSpacing: 0.8,
-                                      fontSize: ScreenDimension.textSize * 1.7,
+                                      fontSize: ScreenDimension.textSize * titleText,
                                       fontWeight: FontWeight.w700)),
 
                               ],
@@ -211,7 +211,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   TextSpan(
                                     text: "Read ",
                                     style:  TextStyle(
-                                        fontSize: ScreenDimension.textSize * 1.5,
+                                        fontSize: ScreenDimension.textSize * bodyTextMedium,
                                         color: AppColors.textColorPrimary,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -220,7 +220,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   TextSpan(
                                     text: "Privacy Policy",
                                     style: TextStyle(
-                                        fontSize: ScreenDimension.textSize *1.5,
+                                        fontSize: ScreenDimension.textSize *bodyTextMedium,
                                         color: AppColors.primary,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -229,7 +229,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   TextSpan(
                                     text: " and ",
                                     style: TextStyle(
-                                        fontSize: ScreenDimension.textSize *1.5,
+                                        fontSize: ScreenDimension.textSize *bodyTextMedium,
                                         color: AppColors.textColorPrimary,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -238,7 +238,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   TextSpan(
                                     text: "Terms & Conditions",
                                     style: TextStyle(
-                                        fontSize: ScreenDimension.textSize *  1.5,
+                                        fontSize: ScreenDimension.textSize *  bodyTextMedium,
                                         color: AppColors.primary,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -252,7 +252,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: ScreenDimension.onePercentOfScreenHight * 2),
                               child: Text("Kale Logistics Solution", style: TextStyle(
-                                color: AppColors.textColorSecondary, fontSize: ScreenDimension.textSize * 1.5, fontWeight: FontWeight.w400,
+                                color: AppColors.textColorSecondary, fontSize: ScreenDimension.textSize * bodyTextMedium, fontWeight: FontWeight.w400,
                               ),),
                             ),
 

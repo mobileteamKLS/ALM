@@ -32,7 +32,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
         child: Stack(
           children: [
             Positioned(
-              top: 50,
+              top: 70,
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: ScreenDimension.onePercentOfScreenWidth*headingTextHorizontalPadding,
@@ -108,7 +108,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                         style: TextStyle(
                             color: AppColors.textColorSecondary,
                             letterSpacing: 0.8,
-                            fontSize: ScreenDimension.textSize * 1.5,
+                            fontSize: ScreenDimension.textSize * bodyTextMedium,
                             fontWeight: FontWeight.w400)),
 
                       SizedBox(height: ScreenDimension.onePercentOfScreenHight * 0.5,),
@@ -128,7 +128,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: ScreenDimension.onePercentOfScreenHight * 2),
                   child: Text("Kale Logistics Solution", style: TextStyle(
-                    color: AppColors.textColorPrimary, fontSize: ScreenDimension.textSize * 1.5, fontWeight: FontWeight.w400,
+                    color: AppColors.textColorPrimary, fontSize: ScreenDimension.textSize * bodyTextMedium, fontWeight: FontWeight.w400,
                   ),),
                 ),
               ],

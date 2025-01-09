@@ -7,10 +7,11 @@ class AppColors{
   static const secondary= Color(0xFF1c86ff);
   static const background= Color(0xfff2f4f7);
   static const white= Color(0xffffffff);
-  static const draft= Color(0xffcde0fa);
-  static const gateInRed= Color(0xffffd1d1);
-  static const gateInYellow= Color(0xfffcdd9f);
-  static const gatedIn= Color(0xffb4d9b5);
+  static const lightBlue= Color(0xffCCDFFA);
+  static const lightRed= Color(0xffFFD0D0);
+  static const lightYellow= Color(0xffFCDEA0);
+  static const lightGreen= Color(0xffBBF3BC);
+  static const lightPurple= Color(0xffDFD6EF);
   static const gradient1= Color(0xffF2F7FD);
   static const gradient2= Color(0xffCCDFFA);
   static const cardTextColor= Color(0xff184565);
