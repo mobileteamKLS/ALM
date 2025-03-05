@@ -35,7 +35,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               top: 70,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: ScreenDimension.onePercentOfScreenWidth*headingTextHorizontalPadding,
+                  horizontal: ScreenDimension.onePercentOfScreenWidth*AppDimensions.headingTextHorizontalPadding,
                 ),
                 child: Text.rich(
                   TextSpan(
@@ -43,7 +43,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       TextSpan(
                         text: "Let's Get Started, \n",
                         style:TextStyle(
-                            fontSize: ScreenDimension.textSize * headingText,
+                            fontSize: ScreenDimension.textSize * AppDimensions.headingText,
                             color: AppColors.white,
                             fontWeight: FontWeight.w300,
                           ),
@@ -52,7 +52,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       TextSpan(
                         text: "Choose Sign In Method",
                         style: TextStyle(
-                            fontSize: ScreenDimension.textSize * headingText,
+                            fontSize: ScreenDimension.textSize * AppDimensions.headingText,
                             color: AppColors.white,
                             fontWeight: FontWeight.w700,
                           ),
@@ -72,10 +72,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               children: [
                     Container(
                       padding: EdgeInsets.all(
-                          ScreenDimension.onePercentOfScreenHight * cardPadding),
+                          ScreenDimension.onePercentOfScreenHight * AppDimensions.cardPadding),
                       decoration: BoxDecoration(
                         color: AppColors.white,
-                        borderRadius:BorderRadius.circular(ScreenDimension.onePercentOfScreenWidth * cardBorderRadiusCurve)
+                        borderRadius:BorderRadius.circular(ScreenDimension.onePercentOfScreenWidth * AppDimensions.cardBorderRadiusCurve)
                       ),
                       child:Column(
                     children: [
@@ -91,7 +91,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                           style: TextStyle(
                               color: AppColors.textColorPrimary,
                               letterSpacing: 0.8,
-                              fontSize: ScreenDimension.textSize * titleText,
+                              fontSize: ScreenDimension.textSize * AppDimensions.titleText,
                               fontWeight: FontWeight.w700)),
 
                       ],),
@@ -108,7 +108,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                         style: TextStyle(
                             color: AppColors.textColorSecondary,
                             letterSpacing: 0.8,
-                            fontSize: ScreenDimension.textSize * bodyTextMedium,
+                            fontSize: ScreenDimension.textSize * AppDimensions.bodyTextMedium,
                             fontWeight: FontWeight.w400)),
 
                       SizedBox(height: ScreenDimension.onePercentOfScreenHight * 0.5,),
@@ -117,7 +117,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                         style:TextStyle(
                             color: AppColors.primary,
                             letterSpacing: 0.8,
-                            fontSize: ScreenDimension.textSize * titleText,
+                            fontSize: ScreenDimension.textSize * AppDimensions.titleText,
                             fontWeight: FontWeight.w700),
 
                       ),
@@ -128,7 +128,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: ScreenDimension.onePercentOfScreenHight * 2),
                   child: Text("Kale Logistics Solution", style: TextStyle(
-                    color: AppColors.textColorPrimary, fontSize: ScreenDimension.textSize * bodyTextMedium, fontWeight: FontWeight.w400,
+                    color: AppColors.textColorPrimary, fontSize: ScreenDimension.textSize * AppDimensions.bodyTextMedium, fontWeight: FontWeight.w400,
                   ),),
                 ),
               ],

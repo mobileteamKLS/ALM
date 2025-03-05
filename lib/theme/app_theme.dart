@@ -53,21 +53,26 @@ class AppTheme {
 }
 
 class AppStyle{
-  static TextStyle sideTitleText = TextStyle(
+  static TextStyle sideDashboardTitleText = TextStyle(
     color: AppColors.textColorSecondary,
-    fontSize: ScreenDimension.textSize * bodyTextMedium,
+    fontSize: ScreenDimension.textSize * AppDimensions.bodyTextMedium,
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle screenHeading = TextStyle(
+  static TextStyle defaultHeading = TextStyle(
     color: AppColors.textColorPrimary,
-    fontSize: ScreenDimension.textSize * titleText,
+    fontSize: ScreenDimension.textSize * AppDimensions.titleText,
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle defaultTitle = TextStyle(
+    color: AppColors.textColorPrimary,
+    fontSize: ScreenDimension.textSize * AppDimensions.bodyTextLarge,
     fontWeight: FontWeight.w700,
   );
 
   static TextStyle sideDescText = TextStyle(
     color: AppColors.textColorSecondary,
-    fontSize: ScreenDimension.textSize * bodyTextSmall,
+    fontSize: ScreenDimension.textSize * AppDimensions.bodyTextSmall,
     fontWeight: FontWeight.w500,
   );
 }

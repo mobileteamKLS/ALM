@@ -8,6 +8,7 @@ import '../../core/img_assets.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/media_query.dart';
+import '../../widgest/common_widgests.dart';
 
 class FlightCapacityScreen extends StatefulWidget {
   const FlightCapacityScreen({super.key});
@@ -17,10 +18,69 @@ class FlightCapacityScreen extends StatefulWidget {
 }
 
 class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
+  List<FlightCapacityListItem> flightCapacityData = [
+    FlightCapacityListItem(
+      origin: 'ANC',
+      destination: 'DXB',
+      capacity: 3,
+      time: '00:00 - 23:00',
+      flightNo: "5Y919T",
+    ),
+    FlightCapacityListItem(
+      origin: 'PHX',
+      destination: 'LAX',
+      capacity: 12,
+      time: '06:00 - 20:00',
+      flightNo: "AA1234",
+    ),
+    FlightCapacityListItem(
+      origin: 'JFK',
+      destination: 'LHR',
+      capacity: 8,
+      time: '08:00 - 22:00',
+      flightNo: "BA567",
+    ),
+    FlightCapacityListItem(
+      origin: 'SFO',
+      destination: 'NRT',
+      capacity: 5,
+      time: '10:00 - 19:00',
+      flightNo: "UA890",
+    ),
+    FlightCapacityListItem(
+      origin: 'SYD',
+      destination: 'SIN',
+      capacity: 6,
+      time: '07:00 - 21:00',
+      flightNo: "QF456",
+    ),
+    FlightCapacityListItem(
+      origin: 'MEX',
+      destination: 'MIA',
+      capacity: 10,
+      time: '05:00 - 23:00',
+      flightNo: "AM789",
+    ),
+    FlightCapacityListItem(
+      origin: 'IST',
+      destination: 'DOH',
+      capacity: 7,
+      time: '04:00 - 20:00',
+      flightNo: "TK321",
+    ),
+    FlightCapacityListItem(
+      origin: 'DXB',
+      destination: 'CDG',
+      capacity: 9,
+      time: '02:00 - 18:00',
+      flightNo: "EK456",
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
     ScreenDimension().init(context);
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text(
           '',
@@ -63,35 +123,101 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
           Container(
             width: double.infinity,
             height: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: ScreenDimension.onePercentOfScreenHight*defaultPageVerticalPadding,horizontal: ScreenDimension.onePercentOfScreenWidth*defaultPageHorizontalPadding),
+            padding: EdgeInsets.symmetric(
+                vertical: ScreenDimension.onePercentOfScreenHight *
+                    AppDimensions.defaultPageVerticalPadding,
+                horizontal: ScreenDimension.onePercentOfScreenWidth *
+                    AppDimensions.defaultPageHorizontalPadding),
             decoration: const BoxDecoration(
               color: AppColors.background,
             ),
-            child:  SingleChildScrollView(
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                       Row(
+                      Row(
                         children: [
-                          Icon(CupertinoIcons.cube),
+                     Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                            child: SvgPicture.asset(
+                              menu,
+                              height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize,
+                            ),
+                          ),
                           Text(
-                            '  SHIPMENT LIST',
-                            style: AppStyle.screenHeading,
+                            '  Flight Capacity Listing',
+                            style: AppStyle.defaultHeading,
                           ),
                         ],
                       ),
-
                     ],
                   ),
-                 Padding(padding: EdgeInsets.symmetric(vertical: ScreenDimension.onePercentOfScreenHight*0.5,),
-                 child: Row(children: [
-
-                 ],),)
-
-              ],),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: ScreenDimension.onePercentOfScreenWidth,
+                        vertical: ScreenDimension.onePercentOfScreenHight),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Total 4/4", style: AppStyle.defaultTitle),
+                        Row(
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: SvgPicture.asset(
+                                  search,
+                                  height:
+                                      ScreenDimension.onePercentOfScreenHight *
+                                          AppDimensions.defaultIconSize1,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width:
+                                  ScreenDimension.onePercentOfScreenWidth * 4
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: SvgPicture.asset(
+                                  filter,
+                                  height:
+                                      ScreenDimension.onePercentOfScreenHight *
+                                          AppDimensions.defaultIconSize1,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: ScreenDimension.onePercentOfScreenWidth,
+                      ),
+                      child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: flightCapacityData.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return FlightCapacityListItem(
+                              origin: flightCapacityData[index].origin,
+                              destination:
+                                  flightCapacityData[index].destination,
+                              capacity: flightCapacityData[index].capacity,
+                              time: flightCapacityData[index].time,
+                              flightNo: flightCapacityData[index].flightNo,
+                            );
+                          })),
+                ],
+              ),
             ),
           ),
           Positioned(

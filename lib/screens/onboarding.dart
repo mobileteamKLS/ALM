@@ -101,13 +101,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       ),
                      Text(contents[i].title,
                           style: TextStyle(
-                            color: AppColors.textColorPrimary,fontSize: ScreenDimension.textSize*headingText,fontWeight: FontWeight.w600
+                            color: AppColors.textColorPrimary,fontSize: ScreenDimension.textSize*AppDimensions.headingText,fontWeight: FontWeight.w600
                           ),
                           textAlign: TextAlign.center),
                       SizedBox(height: ScreenDimension.onePercentOfScreenHight * 2),
                       Text(  contents[i].desc,
                           style: TextStyle(
-                              color: AppColors.textColorSecondary,fontSize: ScreenDimension.textSize*bodyTextMedium,fontWeight: FontWeight.w400
+                              color: AppColors.textColorSecondary,fontSize: ScreenDimension.textSize*AppDimensions.bodyTextMedium,fontWeight: FontWeight.w400
                           ),
                           textAlign: TextAlign.center),
                     ],

@@ -1,4 +1,5 @@
 import 'package:alm/screens/get_started_screen.dart';
+import 'package:alm/screens/splash_screen.dart';
 import 'package:alm/theme/app_theme.dart';
 import 'package:alm/utils/media_query.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const GetStartedScreen(),
+      home: const SplashScreen(),
     );
   }
 }
