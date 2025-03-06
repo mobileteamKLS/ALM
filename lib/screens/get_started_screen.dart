@@ -1,6 +1,6 @@
 import 'package:alm/screens/sign_in.dart';
 import 'package:alm/theme/app_colors.dart';
-import 'package:alm/widgest/common_widgests.dart';
+import 'package:alm/widgest/common_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -98,7 +98,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                       SizedBox(
                         height: ScreenDimension.onePercentOfScreenHight,
                       ),
-                      RoundedGradientButton(text: "SIGN IN WITH USER ID", press: (){
+                      ButtonWidgets.buildRoundedGradientButton(text: "SIGN IN WITH USER ID", press: (){
                         print("Sign In");
                         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>SignInScreen(),),(route) => false,);
                       }),

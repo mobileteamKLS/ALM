@@ -6,7 +6,7 @@ import '../core/dimensions.dart';
 import '../core/img_assets.dart';
 import '../theme/app_colors.dart';
 import '../utils/media_query.dart';
-import '../widgest/common_widgests.dart';
+import '../widgest/common_widgets.dart';
 
 
 class SignInScreen extends StatefulWidget {
@@ -169,7 +169,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             SizedBox(
                               height: ScreenDimension.onePercentOfScreenHight*2.5,
                             ),
-                            RoundedGradientButton(text: "SIGN IN", press: (){
+                            ButtonWidgets.buildRoundedGradientButton(text: "SIGN IN", press: (){
                               print("Sign In");
                               Navigator.pushReplacement(
                                 context,

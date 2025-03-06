@@ -61,12 +61,18 @@ class AppStyle{
 
   static TextStyle defaultHeading = TextStyle(
     color: AppColors.textColorPrimary,
-    fontSize: ScreenDimension.textSize * AppDimensions.titleText,
+    fontSize: ScreenDimension.textSize * AppDimensions.headingText3,
     fontWeight: FontWeight.w700,
   );
   static TextStyle defaultTitle = TextStyle(
     color: AppColors.textColorPrimary,
     fontSize: ScreenDimension.textSize * AppDimensions.bodyTextLarge,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle subHeading = TextStyle(
+    color: AppColors.textColorPrimary,
+    fontSize: ScreenDimension.textSize * AppDimensions.titleText,
     fontWeight: FontWeight.w700,
   );
 

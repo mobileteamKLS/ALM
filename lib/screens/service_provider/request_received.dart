@@ -10,50 +10,55 @@ import '../../theme/app_theme.dart';
 import '../../utils/media_query.dart';
 import '../../widgest/common_widgets.dart';
 
-class FlightCapacityScreen extends StatefulWidget {
-  const FlightCapacityScreen({super.key});
+class RequestReceivedScreen extends StatefulWidget {
+  const RequestReceivedScreen({super.key});
 
   @override
-  State<FlightCapacityScreen> createState() => _FlightCapacityScreenState();
+  State<RequestReceivedScreen> createState() => _RequestReceivedScreenState();
 }
 
-class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
+class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
 
-  List<Flight> flights = [
-    Flight(
-      origin: 'ANC',
-      destination: 'DXB',
-      capacity: 3,
-      time: '00:00 - 23:00',
-      flightNo: '5Y919T',
+  List<CapacityRequest> capacityRequests = [
+    CapacityRequest(
+      airline: 'AMERICAN AIRLINES',
+      flightNumber: 'AA4204',
+      rfcDate: '06 Sep 24',
+      expectedRevenue: 1500.00,
+      status: 'CAPACITY REQUESTED',
+      logoUrl: 'assets/images/american_airlines_logo.png',
     ),
-    Flight(
-      origin: 'JFK',
-      destination: 'LHR',
-      capacity: 4,
-      time: '08:30 - 19:45',
-      flightNo: '5Y827B',
+    CapacityRequest(
+      airline: 'DELTA AIR LINES',
+      flightNumber: 'DL1822',
+      rfcDate: '12 Sep 24',
+      expectedRevenue: 2350.75,
+      status: 'CAPACITY REQUESTED',
+      logoUrl: 'assets/images/delta_logo.png',
     ),
-    Flight(
-      origin: 'LAX',
-      destination: 'HKG',
-      capacity: 5,
-      time: '06:15 - 22:30',
-      flightNo: '5Y345C',
+    CapacityRequest(
+      airline: 'UNITED AIRLINES',
+      flightNumber: 'UA5591',
+      rfcDate: '15 Sep 24',
+      expectedRevenue: 1875.50,
+      status: 'CONFIRMED',
+      logoUrl: 'assets/images/united_logo.png',
     ),
-    Flight(
-      origin: 'CDG',
-      destination: 'SIN',
-      capacity: 2,
-      time: '12:00 - 04:15',
-      flightNo: '5Y562D',
+    CapacityRequest(
+      airline: 'SOUTHWEST AIRLINES',
+      flightNumber: 'WN3325',
+      rfcDate: '18 Sep 24',
+      expectedRevenue: 1200.00,
+      status: 'PENDING APPROVAL',
+      logoUrl: 'assets/images/southwest_logo.png',
     ),
-    Flight(
-      origin: 'AMS',
-      destination: 'ICN',
-      capacity: 4,
-      time: '14:30 - 09:45',
-      flightNo: '5Y784F',
+    CapacityRequest(
+      airline: 'BRITISH AIRWAYS',
+      flightNumber: 'BA0289',
+      rfcDate: '22 Sep 24',
+      expectedRevenue: 3450.00,
+      status: 'CAPACITY REQUESTED',
+      logoUrl: 'assets/images/british_airways_logo.png',
     ),
   ];
 
@@ -97,7 +102,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
           ),
         ],
       ),
-      drawer: AppDrawer(selectedScreen: "Flight Capacity"),
+      drawer: AppDrawer(selectedScreen: "Request Received"),
       body: Stack(
         children: [
           Container(
@@ -130,7 +135,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                             ),
                           ),
                           Text(
-                            '  Flight Capacity Listing',
+                            '  Request Received Listing',
                             style: AppStyle.defaultHeading,
                           ),
                         ],
@@ -185,19 +190,18 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                     ),
                   ),
                   Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: ScreenDimension.onePercentOfScreenWidth,
-                      ),
-                      child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: flights.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return CommonCardWidgets
-                                .buildFlightCapacityListItem(
-                                    context: context,
-                                    flightDetails: flights[index]);
-                          })),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: ScreenDimension.onePercentOfScreenWidth,
+                    ),
+                    child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: capacityRequests.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return CommonCardWidgets.buildRequestReceivedListItem(
+                              context: context,requestDetails: capacityRequests[index]);
+                        }),
+                  ),
                 ],
               ),
             ),

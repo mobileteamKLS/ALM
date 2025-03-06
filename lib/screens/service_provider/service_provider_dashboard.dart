@@ -8,7 +8,7 @@ import '../../core/dimensions.dart';
 import '../../core/img_assets.dart';
 import '../../utils/media_query.dart';
 import '../../widgest/app_drawer.dart';
-import '../../widgest/common_widgests.dart';
+import '../../widgest/common_widgets.dart';
 
 class ProviderDashboardScreen extends StatefulWidget {
   const ProviderDashboardScreen({super.key});
@@ -128,17 +128,17 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: ScreenDimension.onePercentOfScreenHight * 0.5),
-                child: const Row(
+                child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    DashboardCard(
+                    CommonCardWidgets.buildDashboardCard(
                       numValue: "22.5 ",
                       unit: "MT",
                       icon: Icons.shopping_bag_outlined,
                       color: AppColors.lightBlue,
                       desc: "Total Capacity Booked",
                     ),
-                    DashboardCard(
+                    CommonCardWidgets.buildDashboardCard(
                       numValue: "6.5 ",
                       unit: "MT",
                       icon: Icons.shopping_bag_outlined,
@@ -462,17 +462,17 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: ScreenDimension.onePercentOfScreenHight * AppDimensions.dashboardCardVerticalPaddingLong),
-                child: const Row(
+                child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    DashboardCard(
+                    CommonCardWidgets.buildDashboardCard(
                       numValue: "22.5 ",
                       unit: "MT",
                       icon: Icons.shopping_bag_outlined,
                       color: AppColors.lightBlue,
                       desc: "Total Loads Booked",
                     ),
-                    DashboardCard(
+                    CommonCardWidgets.buildDashboardCard(
                       numValue: "6.8 ",
                       unit: "MT",
                       icon: Icons.shopping_bag_outlined,
@@ -485,17 +485,17 @@ class _ProviderDashboardScreenState extends State<ProviderDashboardScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: ScreenDimension.onePercentOfScreenHight * AppDimensions.dashboardCardVerticalPadding),
-                child: const Row(
+                child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    DashboardCard(
+                    CommonCardWidgets.buildDashboardCard(
                       numValue: "48.8 ",
                       unit: "MT",
                       icon: Icons.shopping_bag_outlined,
                       color: AppColors.lightGreen,
                       desc: "Total Load Posted",
                     ),
-                    DashboardCard(
+                    CommonCardWidgets.buildDashboardCard(
                       numValue: "9.6 ",
                       unit: "MT",
                       icon: Icons.shopping_bag_outlined,

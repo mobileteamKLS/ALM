@@ -5,10 +5,11 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../core/dimensions.dart';
 import '../../core/img_assets.dart';
+import '../../modal/flight_capacity.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_theme.dart';
 import '../../utils/media_query.dart';
-import '../../widgest/common_widgests.dart';
+import '../../widgest/common_widgets.dart';
 
 class FlightCapacityDetailsScreen extends StatefulWidget {
   const FlightCapacityDetailsScreen({super.key});
@@ -20,64 +21,79 @@ class FlightCapacityDetailsScreen extends StatefulWidget {
 
 class _FlightCapacityDetailsScreenState
     extends State<FlightCapacityDetailsScreen> {
-  List<FlightCapacityListItem> flightCapacityData = [
-    FlightCapacityListItem(
-      origin: 'ANC',
-      destination: 'DXB',
-      capacity: 3,
-      time: '00:00 - 23:00',
-      flightNo: "5Y919T",
+  List<FlightCapacityDetails> shipmentsCapacity = [
+    FlightCapacityDetails(
+      date: 'Sat, 02 May 24',
+      amount: 11500.00,
+      rate: 1.60,
+      weightCurrent: 42000,
+      weightTotal: 51208,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.60,
     ),
-    FlightCapacityListItem(
-      origin: 'PHX',
-      destination: 'LAX',
-      capacity: 12,
-      time: '06:00 - 20:00',
-      flightNo: "AA1234",
+    FlightCapacityDetails(
+      date: 'Thu, 03 May 24',
+      amount: 9800.00,
+      rate: 1.60,
+      weightCurrent: 36750,
+      weightTotal: 45000,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.82,
     ),
-    FlightCapacityListItem(
-      origin: 'JFK',
-      destination: 'LHR',
-      capacity: 8,
-      time: '08:00 - 22:00',
-      flightNo: "BA567",
+    FlightCapacityDetails(
+      date: 'Tue, 04 May 24',
+      amount: 15200.00,
+      rate: 1.75,
+      weightCurrent: 52000,
+      weightTotal: 65000,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.80,
     ),
-    FlightCapacityListItem(
-      origin: 'SFO',
-      destination: 'NRT',
-      capacity: 5,
-      time: '10:00 - 19:00',
-      flightNo: "UA890",
+    FlightCapacityDetails(
+      date: 'Wed, 21 Aug 24',
+      amount: 8300.00,
+      rate: 1.55,
+      weightCurrent: 32000,
+      weightTotal: 40000,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.80,
     ),
-    FlightCapacityListItem(
-      origin: 'SYD',
-      destination: 'SIN',
-      capacity: 6,
-      time: '07:00 - 21:00',
-      flightNo: "QF456",
+    FlightCapacityDetails(
+      date: 'Mon, 02 May 24',
+      amount: 12700.00,
+      rate: 1.65,
+      weightCurrent: 38500,
+      weightTotal: 55000,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.70,
     ),
-    FlightCapacityListItem(
-      origin: 'MEX',
-      destination: 'MIA',
-      capacity: 10,
-      time: '05:00 - 23:00',
-      flightNo: "AM789",
+    FlightCapacityDetails(
+      date: 'Sat, 02 May 24',
+      amount: 11500.00,
+      rate: 1.60,
+      weightCurrent: 42000,
+      weightTotal: 51208,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.60,
     ),
-    FlightCapacityListItem(
-      origin: 'IST',
-      destination: 'DOH',
-      capacity: 7,
-      time: '04:00 - 20:00',
-      flightNo: "TK321",
+    FlightCapacityDetails(
+      date: 'Thu, 03 May 24',
+      amount: 9800.00,
+      rate: 1.60,
+      weightCurrent: 36750,
+      weightTotal: 45000,
+      unit: 'KG',
+      currency: 'USD',
+      progress: 0.82,
     ),
-    FlightCapacityListItem(
-      origin: 'DXB',
-      destination: 'CDG',
-      capacity: 9,
-      time: '02:00 - 18:00',
-      flightNo: "EK456",
-    )
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -143,11 +159,12 @@ class _FlightCapacityDetailsScreenState
                       Row(
                         children: [
                           GestureDetector(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                            child: Container(
+
+                              padding: const EdgeInsets.only(left: 8.0,right: 12,top: 8,bottom: 8),
                               child: SvgPicture.asset(
                                 back,
-                                height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize,
+                                height: ScreenDimension.onePercentOfScreenHight * AppDimensions.defaultIconSize1,
                               ),
                             ),
                             onTap: () {
@@ -155,7 +172,7 @@ class _FlightCapacityDetailsScreenState
                             },
                           ),
                           Text(
-                            '  Flight Capacity Details',
+                            'Flight Capacity Details',
                             style: AppStyle.defaultHeading,
                           ),
                         ],
@@ -229,7 +246,7 @@ class _FlightCapacityDetailsScreenState
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 8.0),
+                                  padding: const EdgeInsets.only(right: 4.0),
                                   child: SvgPicture.asset(
                                     clockBlue,
                                     height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize2,
@@ -249,7 +266,7 @@ class _FlightCapacityDetailsScreenState
                             Row(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                  padding: const EdgeInsets.only(left: 12.0,right: 4.0),
                                   child: SvgPicture.asset(
                                     ticketBlue,
                                     height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize2,
@@ -289,17 +306,10 @@ class _FlightCapacityDetailsScreenState
                       ),
                       child: ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
-                          itemCount: flightCapacityData.length,
+                          itemCount: shipmentsCapacity.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
-                            return FlightCapacityListItem(
-                              origin: flightCapacityData[index].origin,
-                              destination:
-                                  flightCapacityData[index].destination,
-                              capacity: flightCapacityData[index].capacity,
-                              time: flightCapacityData[index].time,
-                              flightNo: flightCapacityData[index].flightNo,
-                            );
+                            return  FlightCapacityCard(flightCapacityDetails: shipmentsCapacity[index],);
                           })),
                 ],
               ),

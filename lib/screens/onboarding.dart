@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../core/dimensions.dart';
 import '../modal/onboarding_data.dart';
-import '../widgest/common_widgests.dart';
+import '../widgest/common_widgets.dart';
 import 'service_provider/service_provider_dashboard.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -127,7 +127,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 if (currentPage == 0)
                   Padding(
                     padding: EdgeInsets.all(30),
-                    child: RoundedGradientButton(
+                    child: ButtonWidgets.buildRoundedGradientButton(
                       text: 'Get Started',
                       press: () {
                         controller.nextPage(
@@ -139,7 +139,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   )else if(currentPage + 1 == contents.length)
                   Padding(
                     padding: EdgeInsets.all(30),
-                    child: RoundedGradientButton(
+                    child: ButtonWidgets.buildRoundedGradientButton(
                       text: 'Start',
                       press: completeOnboarding,
                     ),
@@ -169,7 +169,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                         SizedBox(height: ScreenDimension.onePercentOfScreenHight,),
 
-                        RoundedGradientButton(
+                        ButtonWidgets.buildRoundedGradientButton(
                           text: 'Next',
                           press: () {
                             controller.nextPage(
