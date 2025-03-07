@@ -2,7 +2,6 @@ import 'package:alm/widgest/app_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../core/dimensions.dart';
 import '../../core/img_assets.dart';
 import '../../modal/flight_capacity.dart';
@@ -11,16 +10,16 @@ import '../../theme/app_theme.dart';
 import '../../utils/media_query.dart';
 import '../../widgest/common_widgets.dart';
 
-class FlightCapacityDetailsScreen extends StatefulWidget {
-  const FlightCapacityDetailsScreen({super.key});
+class RequestReceivedDetailsScreen extends StatefulWidget {
+  const RequestReceivedDetailsScreen({super.key});
 
   @override
-  State<FlightCapacityDetailsScreen> createState() =>
-      _FlightCapacityDetailsScreenState();
+  State<RequestReceivedDetailsScreen> createState() =>
+      _RequestReceivedDetailsScreenState();
 }
 
-class _FlightCapacityDetailsScreenState
-    extends State<FlightCapacityDetailsScreen> {
+class _RequestReceivedDetailsScreenState
+    extends State<RequestReceivedDetailsScreen> {
   List<FlightCapacityDetails> shipmentsCapacity = [
     FlightCapacityDetails(
       date: 'Sat, 02 May 24',
@@ -161,7 +160,10 @@ class _FlightCapacityDetailsScreenState
                           GestureDetector(
                             child: Container(
                               color: AppColors.gradient1,
-
+                              // decoration: BoxDecoration(
+                              //   borderRadius: BorderRadius.circular(5),
+                              //
+                              // ),
                               padding: const EdgeInsets.only(left: 8.0,right: 12,top: 8,bottom: 8),
                               child: SvgPicture.asset(
                                 back,
@@ -173,7 +175,7 @@ class _FlightCapacityDetailsScreenState
                             },
                           ),
                           Text(
-                            'Flight Capacity Details',
+                            'Request Received Details',
                             style: AppStyle.defaultHeading,
                           ),
                         ],
@@ -211,66 +213,28 @@ class _FlightCapacityDetailsScreenState
                         Row(
                           children: [
                             Text(
-                              "ANC",
+                              "AMERICAN AIRLINES",
                               style: TextStyle(
                                 fontSize: ScreenDimension.textSize *
-                                    AppDimensions.headingText,
+                                    AppDimensions.headingText4,
                                 color: AppColors.cardTextColor,
                                 fontWeight: FontWeight.w800,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                              child: SvgPicture.asset(
-                                planeBlue,
-                                height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize,
-                              ),
-                            ),
-                            Text(
-                              "HKG",
-                              style: TextStyle(
-                                fontSize: ScreenDimension.textSize *
-                                    AppDimensions.headingText,
-                                color: AppColors.cardTextColor,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
+
                           ],
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
+
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 4.0),
-                                  child: SvgPicture.asset(
-                                    clockBlue,
-                                    height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize,
-                                  ),
-                                ),
-                                Text(
-                                  "00:00 - 23:00",
-                                  style: TextStyle(
-                                    fontSize: ScreenDimension.textSize *
-                                        AppDimensions.bodyTextMedium,
-                                    color: AppColors.cardTextColor,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 12.0,right: 4.0),
+                                  padding: const EdgeInsets.only(left: 0.0,right: 4.0),
                                   child: SvgPicture.asset(
                                     ticketBlue,
-                                    height: ScreenDimension.onePercentOfScreenHight * AppDimensions.cardIconsSize,
+                                    height: ScreenDimension.onePercentOfScreenHight * AppDimensions.defaultIconSize1,
                                   ),
                                 ),
                                 Text(
@@ -284,6 +248,17 @@ class _FlightCapacityDetailsScreenState
                                 ),
                               ],
                             ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: AppColors.white,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child:  Text(
+                                "CAPACITY REQUESTED",
+                                style:  AppStyle.statusText,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -293,25 +268,44 @@ class _FlightCapacityDetailsScreenState
                     padding: EdgeInsets.symmetric(
                         horizontal: ScreenDimension.onePercentOfScreenWidth,
                         vertical: ScreenDimension.onePercentOfScreenHight),
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Total 4/4", style: AppStyle.defaultTitle),
-
+                        CommonCardWidgets.buildRequestReceivedDetailsCard(),
+                        SizedBox(height: ScreenDimension.onePercentOfScreenHight ),
+                        CommonCardWidgets.buildAttachedDocumentCard(),
+                        SizedBox(height: ScreenDimension.onePercentOfScreenHight ),
+                        Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(
+                              ScreenDimension.onePercentOfScreenHight *
+                                  AppDimensions.defaultContainerPadding),
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                spreadRadius: 0.5,
+                                blurRadius: 4,
+                                offset: const Offset(0, 1),
+                              ),
+                            ],
+                            // border: Border.all(color: Colors.grey.shade200),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(width: ScreenDimension.onePercentOfScreenWidth*44,child: CommonCardWidgets.buildInfoColumn('SHC', 'GEN,PER')),
+                              SizedBox(width: ScreenDimension.onePercentOfScreenWidth*44,child: CommonCardWidgets.buildInfoColumn('Assigned AWB', '125-20234568')),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
-                  Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: ScreenDimension.onePercentOfScreenWidth,
-                      ),
-                      child: ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: shipmentsCapacity.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return  FlightCapacityCard(flightCapacityDetails: shipmentsCapacity[index],);
-                          })),
+
                 ],
               ),
             ),

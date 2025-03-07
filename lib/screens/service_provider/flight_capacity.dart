@@ -122,7 +122,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                         children: [
                           Padding(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
+                            const EdgeInsets.only(left: 8.0,right: 12,top: 8,bottom: 8),
                             child: SvgPicture.asset(
                               menu,
                               height: ScreenDimension.onePercentOfScreenHight *
@@ -130,7 +130,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                             ),
                           ),
                           Text(
-                            '  Flight Capacity Listing',
+                            'Flight Capacity Listing',
                             style: AppStyle.defaultHeading,
                           ),
                         ],
@@ -275,7 +275,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                           ],
                         ),
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
@@ -322,7 +322,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                       SizedBox(
                         height: ScreenDimension.onePercentOfScreenHight,
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
@@ -435,7 +435,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                           ],
                         ),
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
@@ -523,7 +523,7 @@ class _FlightCapacityScreenState extends State<FlightCapacityScreen> {
                       SizedBox(
                         height: ScreenDimension.onePercentOfScreenHight * 60,
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,

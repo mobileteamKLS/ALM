@@ -3,6 +3,7 @@ class AppDimensions{
   static const headingText=2.5;
   static const headingText2=2.3;
   static const headingText3=2.2;
+  static const headingText4=2.0;
   static const titleText=1.9;
   static const titleText2=1.8;
   static const titleText3=1.7;

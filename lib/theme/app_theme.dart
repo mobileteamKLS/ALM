@@ -81,6 +81,28 @@ class AppStyle{
     fontSize: ScreenDimension.textSize * AppDimensions.bodyTextSmall,
     fontWeight: FontWeight.w500,
   );
+
+  static TextStyle statusText = TextStyle(
+    color: AppColors.textColorPrimary,
+    fontSize: ScreenDimension.textSize * AppDimensions.bodyTextMedium,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle cardDescText = TextStyle(
+    color: AppColors.textColorSecondary,
+    fontSize: ScreenDimension.textSize * AppDimensions.bodyTextMedium,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle cardValueText = TextStyle(
+    color: AppColors.textColorPrimary,
+    fontSize: ScreenDimension.textSize * AppDimensions.titleText3,
+    fontWeight: FontWeight.w700,
+  );
+  static TextStyle cardBlueText = TextStyle(
+    color: AppColors.primary,
+    fontSize: ScreenDimension.textSize * AppDimensions.titleText3,
+    fontWeight: FontWeight.w500,
+  );
 }
 
 

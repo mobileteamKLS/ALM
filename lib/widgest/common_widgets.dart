@@ -10,6 +10,7 @@ import 'package:flutter_svg/svg.dart';
 import '../core/dimensions.dart';
 import '../core/img_assets.dart';
 import '../screens/service_provider/flight_capacity_details.dart';
+import '../screens/service_provider/request_received_details.dart';
 import '../theme/app_theme.dart';
 import '../utils/media_query.dart';
 
@@ -49,7 +50,7 @@ class CommonCardWidgets {
                     flightDetails.origin,
                     style: TextStyle(
                       fontSize: ScreenDimension.textSize *
-                          AppDimensions.bodyTextLarge,
+                          AppDimensions.titleText2,
                       color: AppColors.textColorPrimary,
                       fontWeight: FontWeight.w800,
                     ),
@@ -59,14 +60,14 @@ class CommonCardWidgets {
                     child: SvgPicture.asset(
                       plane,
                       height: ScreenDimension.onePercentOfScreenHight *
-                          AppDimensions.cardIconsSize2,
+                          AppDimensions.cardIconsSize,
                     ),
                   ),
                   Text(
                     flightDetails.destination,
                     style: TextStyle(
                       fontSize: ScreenDimension.textSize *
-                          AppDimensions.bodyTextLarge,
+                          AppDimensions.titleText2,
                       color: AppColors.textColorPrimary,
                       fontWeight: FontWeight.w800,
                     ),
@@ -80,7 +81,7 @@ class CommonCardWidgets {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: SvgPicture.asset(
                       clock,
                       height: ScreenDimension.onePercentOfScreenHight *
@@ -89,7 +90,7 @@ class CommonCardWidgets {
                   ),
                   Text(
                     flightDetails.time,
-                    style: AppStyle.sideDescText,
+                    style: AppStyle.cardDescText,
                   ),
                 ],
               ),
@@ -122,7 +123,7 @@ class CommonCardWidgets {
                   ),
                   Text(
                     flightDetails.flightNo,
-                    style: AppStyle.sideDescText,
+                    style: AppStyle.cardDescText,
                   ),
                 ],
               ),
@@ -152,7 +153,7 @@ class CommonCardWidgets {
               ),
               Text(
                 "AVAILABLE",
-                style: AppStyle.sideDescText,
+                style: AppStyle.cardDescText,
               ),
             ],
           ),
@@ -223,27 +224,27 @@ class CommonCardWidgets {
                     ),
                     child:  Text(
                       requestDetails.status,
-                      style:  AppStyle.defaultTitle,
+                      style:  AppStyle.statusText,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                   SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.5),
                    Text(
                      requestDetails.airline,
                     style: AppStyle.subHeading,
                   ),
                 ],
               ),
-              Container(
-                width: 48,
-                height: 48,
-                child: Image.network(
-                  'https://placehold.co/48x48/0078D2/FFFFFF.png?text=AA',
-                  fit: BoxFit.contain,
+              SizedBox(
+                width: ScreenDimension.onePercentOfScreenWidth*16,
+                // height: ScreenDimension.onePercentOfScreenWidth*16,
+                child: Image.asset(
+                  americanAirline,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: ScreenDimension.onePercentOfScreenHight),
           Row(
             children: [
               Expanded(
@@ -254,7 +255,7 @@ class CommonCardWidgets {
                       'Flight No.',
                       style: AppStyle.sideDescText,
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.2),
                     Text(
                       requestDetails.flightNumber,
                       style:  AppStyle.defaultTitle,
@@ -270,7 +271,7 @@ class CommonCardWidgets {
                       'RFC Date',
                       style: AppStyle.sideDescText,
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.2),
                     Text(
                       requestDetails.rfcDate,
                       style:  AppStyle.defaultTitle,
@@ -286,9 +287,9 @@ class CommonCardWidgets {
                       'Exp. Revenue',
                       style: AppStyle.sideDescText,
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.2),
                     Text(
-                      "${requestDetails.expectedRevenue} ${requestDetails.currency}",
+                      requestDetails.formattedRevenue,
                       style: AppStyle.defaultTitle,
                     ),
                   ],
@@ -299,7 +300,7 @@ class CommonCardWidgets {
                   Navigator.push(
                       context,
                       CupertinoPageRoute(
-                          builder: (context) => FlightCapacityDetailsScreen()));
+                          builder: (context) => RequestReceivedDetailsScreen()));
                 },
                 child: Container(
                   width: ScreenDimension.onePercentOfScreenWidth * 7,
@@ -318,6 +319,206 @@ class CommonCardWidgets {
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+
+  static Widget buildRequestReceivedDetailsCard(){
+    return  Container(
+      width: double.infinity,
+      padding:  EdgeInsets.all(ScreenDimension.onePercentOfScreenHight *
+          AppDimensions.defaultContainerPadding),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 0.5,
+            blurRadius: 4,
+            offset: const Offset(0, 1),
+          ),
+        ],
+        // border: Border.all(color: Colors.grey.shade200),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+
+            children: [
+              SizedBox(width: ScreenDimension.onePercentOfScreenWidth*44,
+                  child: buildInfoColumn('RFC Date', '06 Sep 24'),
+              ),
+              SizedBox(width: ScreenDimension.onePercentOfScreenWidth*44, child: buildInfoColumn('Exp. Revenue', '16 Sep 24')),
+            ],
+          ),
+           Padding(
+             padding: const EdgeInsets.symmetric(vertical: 12.0),
+             child: customDivider(
+              space: 0,
+              color: Colors.black,
+              hasColor: true,
+              thickness: 1,
+                       ),
+           ),
+          SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.5 ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(width: ScreenDimension.onePercentOfScreenWidth*44,child: buildInfoColumn('From Date', '06 Sep 24')),
+              SizedBox(width: ScreenDimension.onePercentOfScreenWidth*44,child: buildInfoColumn('To Date', '16 Sep 24')),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: customDivider(
+              space: 0,
+              color: Colors.black,
+              hasColor: true,
+              thickness: 1,
+            ),
+          ),
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'ULD Load',
+                style: AppStyle.cardDescText,
+              ),
+               SizedBox(height: ScreenDimension.onePercentOfScreenHight * 0.01),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: SvgPicture.asset(
+                      cube,
+                      height: ScreenDimension.onePercentOfScreenHight *
+                          AppDimensions.cardIconsSize2,
+                    ),
+                  ),
+                  Text(
+                    '2 AA4 | 100.00 KG | 10.00 CBM',
+                    style: AppStyle.cardValueText,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.5 ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Loose Load',
+                style:AppStyle.cardDescText,
+              ),
+              SizedBox(height: ScreenDimension.onePercentOfScreenHight * 0.01),
+              Row(
+                children: [
+                  Padding(
+                    padding:EdgeInsets.only(right: 8.0),
+                    child: SvgPicture.asset(
+                      dolly,
+                      height: ScreenDimension.onePercentOfScreenHight *
+                          AppDimensions.cardIconsSize2,
+                    ),
+                  ),
+                  Text(
+                    '10 PCS | 100.00 KG | 10.00 CBM',
+                    style: AppStyle.cardValueText,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Widget buildInfoColumn(String label, String value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: AppStyle.cardDescText,
+        ),
+         SizedBox(height: ScreenDimension.onePercentOfScreenHight*0.1),
+        Text(
+          value,
+          style: AppStyle.cardValueText,
+        ),
+      ],
+    );
+  }
+
+  static Widget buildAttachedDocumentCard(){
+    return  Container(
+      width: double.infinity,
+      padding:  EdgeInsets.all(ScreenDimension.onePercentOfScreenHight *
+          AppDimensions.defaultContainerPadding),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 0.5,
+            blurRadius: 4,
+            offset: const Offset(0, 1),
+          ),
+        ],
+        // border: Border.all(color: Colors.grey.shade200),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "ATTACHED DOCUMENTS",
+            style: AppStyle.defaultTitle,
+          ),
+          SizedBox(height: ScreenDimension.onePercentOfScreenHight),
+          Text(
+            "document_1.pdf",
+            style: AppStyle.cardBlueText,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: customDivider(
+              space: 0,
+              color: Colors.black,
+              hasColor: true,
+              thickness: 1,
+            ),
+          ),
+          Text(
+            "document_sample_2.pdf",
+            style: AppStyle.cardBlueText,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: customDivider(
+              space: 0,
+              color: Colors.black,
+              hasColor: true,
+              thickness: 1,
+            ),
+          ),
+          Text(
+            "reference.xlx",
+            style: AppStyle.cardBlueText,
+          ),
+
         ],
       ),
     );
@@ -416,7 +617,7 @@ class CommonCardWidgets {
     );
   }
 
-  Widget customDivider({
+  static Widget customDivider({
     double space = 20,
     Color color = AppColors.black,
     bool hasColor = false,
@@ -483,32 +684,7 @@ class ButtonWidgets {
   }
 }
 
-class CustomDivider extends StatelessWidget {
-  final double space;
-  final Color color;
-  final bool hasColor;
-  final double? height;
-  final double? thickness;
 
-  const CustomDivider(
-      {Key? key,
-        this.height = 0.5,
-        this.thickness = 0.5,
-        this.space = 20,
-        this.color = AppColors.black, this.hasColor =false})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Divider(color:
-        hasColor ==true?
-        color.withOpacity(0.2):color.withOpacity(0), height: height, thickness: thickness),
-      ],
-    );
-  }
-}
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -862,12 +1038,12 @@ class _FlightCapacityCardState extends State<FlightCapacityCard>
                         child: SvgPicture.asset(
                           cube,
                           height: ScreenDimension.onePercentOfScreenHight *
-                              AppDimensions.cardIconsSize2,
+                              AppDimensions.cardIconsSize,
                         ),
                       ),
                       Text(
                         "${widget.flightCapacityDetails.amount} ${widget.flightCapacityDetails.currency}",
-                        style: AppStyle.sideDescText,
+                        style: AppStyle.cardDescText,
                       ),
                     ],
                   ),
@@ -896,12 +1072,12 @@ class _FlightCapacityCardState extends State<FlightCapacityCard>
                    child: SvgPicture.asset(
                      dolly,
                      height: ScreenDimension.onePercentOfScreenHight *
-                         AppDimensions.cardIconsSize2,
+                         AppDimensions.cardIconsSize,
                    ),
                  ),
                  Text(
                    "${widget.flightCapacityDetails.rate} / ${widget.flightCapacityDetails.unit} ${widget.flightCapacityDetails.currency}",
-                   style: AppStyle.sideDescText,
+                   style: AppStyle.cardDescText,
                  ),
                ],
              ),

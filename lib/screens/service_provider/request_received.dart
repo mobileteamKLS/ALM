@@ -127,7 +127,7 @@ class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
                         children: [
                           Padding(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 4.0),
+                            EdgeInsets.only(left: 8.0,right: 12,top: 8,bottom: 8),
                             child: SvgPicture.asset(
                               menu,
                               height: ScreenDimension.onePercentOfScreenHight *
@@ -135,7 +135,7 @@ class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
                             ),
                           ),
                           Text(
-                            '  Request Received Listing',
+                            'Request Received Listing',
                             style: AppStyle.defaultHeading,
                           ),
                         ],
@@ -279,7 +279,7 @@ class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
                           ],
                         ),
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
@@ -326,7 +326,7 @@ class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
                       SizedBox(
                         height: ScreenDimension.onePercentOfScreenHight,
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
@@ -439,7 +439,7 @@ class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
                           ],
                         ),
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
@@ -527,7 +527,7 @@ class _RequestReceivedScreenState extends State<RequestReceivedScreen> {
                       SizedBox(
                         height: ScreenDimension.onePercentOfScreenHight * 60,
                       ),
-                      const CustomDivider(
+                      CommonCardWidgets.customDivider(
                         space: 0,
                         color: Colors.black,
                         hasColor: true,
